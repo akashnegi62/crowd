@@ -10,7 +10,6 @@ import {
   Ellipsis,
 } from "lucide-react";
 
-// Combined single default export — HomePage
 export default function HomePage() {
   const stats = [
     { label: "No. of Projects", value: "5000" },
@@ -39,10 +38,11 @@ export default function HomePage() {
   return (
     <div className="font-sans text-gray-900">
       {/* Navbar */}
-      <header className="flex items-center justify-between py-6 px-8 shadow-sm bg-white">
-        <div className="flex items-center gap-2 text-2xl font-bold">
+      <header className="flex items-center justify-between py-6 px-6 md:px-12 shadow-sm bg-white">
+        <div className="flex items-center gap-2 text-xl md:text-2xl font-bold">
           <span className="text-green-700">✦</span> Shapeurvision
         </div>
+
         <nav className="hidden md:flex gap-8 text-gray-700 font-medium">
           <a href="#" className="hover:text-green-700">
             Home
@@ -57,18 +57,19 @@ export default function HomePage() {
             Blogs
           </a>
         </nav>
-        <button className="bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800">
+
+        <button className="hidden md:block bg-green-700 text-white px-5 py-2 rounded-lg hover:bg-green-800">
           Get Started
         </button>
       </header>
 
       {/* Hero Section */}
-      <section className="grid md:grid-cols-2 gap-8 px-70 py-20 items-center">
+      <section className="grid md:grid-cols-2 gap-10 px-6 lg:px-50 md:px-20 py-14 items-center">
         <div>
-          <h1 className="text-5xl font-bold leading-snug">
+          <h1 className="text-4xl md:text-5xl font-bold leading-snug">
             Crafting Spaces. Building Trust.
           </h1>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-base md:text-lg text-gray-600">
             We provide complete carpentry, plumbing, fabrication, civil work,
             tile installation, and interior solutions with precision,
             reliability, and unmatched craftsmanship.
@@ -78,13 +79,13 @@ export default function HomePage() {
           </button>
         </div>
 
-        <div className="h-[40vh] w-[30vw] bg-amber-100 mt-5 rounded-xl overflow-hidden">
+        <div className="h-[30vh] sm:h-[40vh] w-full mt-5 rounded-xl overflow-hidden">
           <img className="h-full w-full object-cover" src="/hero.jpg" alt="" />
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="max-w-6xl mx-auto mt-10 py-10 px-6 rounded-2xl bg-gray-100 grid md:grid-cols-3 gap-6 text-center">
+      <section className="max-w-6xl mx-auto mt-10 py-10 px-6 rounded-2xl bg-gray-100 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
         {stats.map((s, idx) => (
           <div key={idx}>
             <h3 className="text-lg font-semibold">{s.label}</h3>
@@ -94,16 +95,23 @@ export default function HomePage() {
       </section>
 
       {/* Search */}
-      <section className="max-w-xl mx-auto mt-12 flex items-center gap-3 justify-center">
-        <Search className="h-6 w-6 text-gray-600" />
-        <input
-          type="text"
-          placeholder="Enter Pincode"
-          className="border px-4 py-2 rounded-lg w-48 focus:outline-none"
-        />
-        <button className="bg-green-500 text-white px-4 py-2 rounded-lg flex items-center gap-2">
-          Go <ArrowRight className="h-5 w-5" />
-        </button>
+      <section className="max-w-xl mx-auto mt-12 px-6">
+        <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
+          {/* Input */}
+          <div className="flex items-center gap-3 w-full bg-white border rounded-lg px-4 py-2 shadow-sm">
+            <Search className="h-6 w-6 text-gray-600" />
+            <input
+              type="text"
+              placeholder="Enter Pincode"
+              className="w-full focus:outline-none text-gray-700"
+            />
+          </div>
+
+          {/* Button */}
+          <button className="bg-green-600 text-white px-6 py-3 rounded-lg flex items-center gap-2 w-full sm:w-auto justify-center hover:bg-green-700 transition">
+            Go <ArrowRight className="h-5 w-5" />
+          </button>
+        </div>
       </section>
 
       {/* Category Grid */}
@@ -120,7 +128,7 @@ export default function HomePage() {
       </section>
 
       {/* Project Journey */}
-      <section className="max-w-6xl mx-auto mt-20 px-4 py-30">
+      <section className="max-w-6xl mx-auto mt-20 px-4 py-10">
         <h2 className="text-3xl font-bold text-center mb-10">
           Project Journey
         </h2>
@@ -128,7 +136,7 @@ export default function HomePage() {
           {projectStages.map((stage, idx) => (
             <div
               key={idx}
-              className="border border-gray-200 rounded-xl h-[40vh] flex items-center justify-center bg-gray-100 shadow-sm overflow-hidden"
+              className="border border-gray-200 rounded-xl h-[30vh] sm:h-[35vh] md:h-[40vh] flex items-center justify-center bg-gray-100 shadow-sm overflow-hidden"
             >
               <img
                 className="h-full w-full object-cover"
